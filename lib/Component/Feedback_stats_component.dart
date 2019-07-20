@@ -1,13 +1,26 @@
 import 'package:cafeteria/Models/food_item_feedback.dart';
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class FeedbackStatsComponent extends StatelessWidget {
   FoodItemFeedback foodItem;
 
   FeedbackStatsComponent(this.foodItem);
 
+  Map<String, double> parseRadii(){
+    int maxValue = [foodItem.likes, foodItem.neutral, foodItem.dislikes].reduce(max);
+
+    return {
+      "green": foodItem.likes == maxValue ? 15.0 : 10.0,
+      "yellow": foodItem.neutral == maxValue ? 15.0 : 10.0,
+      "red": foodItem.dislikes == maxValue ? 15.0 : 10.0,
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
+    Map<String, double> radiiValues = parseRadii();
+
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -16,7 +29,7 @@ class FeedbackStatsComponent extends StatelessWidget {
           child: CircleAvatar(
             backgroundColor: Colors.greenAccent,
             child: Text(foodItem.likes.toString()),
-            radius: 10,
+            radius: radiiValues["green"],
           ),
         ),
         Padding(
@@ -24,7 +37,7 @@ class FeedbackStatsComponent extends StatelessWidget {
           child: CircleAvatar(
             backgroundColor: Colors.yellow,
             child: Text(foodItem.neutral.toString()),
-            radius: 10,
+            radius: radiiValues["yellow"],
           ),
         ),
         Padding(
@@ -32,7 +45,7 @@ class FeedbackStatsComponent extends StatelessWidget {
           child: CircleAvatar(
             backgroundColor: Colors.redAccent,
             child: Text(foodItem.dislikes.toString()),
-            radius: 10,
+            radius: radiiValues["red"],
           ),
         ),
       ],
