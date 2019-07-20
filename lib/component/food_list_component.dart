@@ -39,7 +39,7 @@ class _FoodListComponentState extends State<FoodListComponent> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(foodItem.name),
-                      Text(foodItem.description)
+                      Text(foodItem.description),
                     ],
                   ),
                 ),
