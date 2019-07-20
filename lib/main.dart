@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'provider/theme_changer_rovider.dart';
+import 'provider/theme_changer_provider.dart';
 import 'Screens/login_screen.dart';
 import 'package:provider/provider.dart';
 

@@ -1,20 +1,20 @@
-import 'package:cafeteria/provider/theme_changer_rovider.dart';
-import 'package:flutter/material.dart';
+import 'package:cafeteria/provider/theme_changer_provider.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class NavigationDrawerComponent extends StatefulWidget {
   @override
-  _NavigationDrawerComponentState createState() => _NavigationDrawerComponentState();
+  _NavigationDrawerComponentState createState() =>
+      _NavigationDrawerComponentState();
 }
 
 class _NavigationDrawerComponentState extends State<NavigationDrawerComponent> {
-
   bool switchOn = false;
 
   Widget build(BuildContext context) {
-
-    ThemeChangerProvider themeChangerProvider = Provider.of<ThemeChangerProvider>(context);
+    ThemeChangerProvider themeChangerProvider =
+        Provider.of<ThemeChangerProvider>(context);
 
     return Drawer(
         child: ListView(children: <Widget>[
@@ -43,13 +43,30 @@ class _NavigationDrawerComponentState extends State<NavigationDrawerComponent> {
       ListTile(
         leading: Icon(Icons.lightbulb_outline),
         title: Text("Night Mode"),
-        trailing: Checkbox(onChanged: (value) {
-          setState(() {
-            switchOn = value;
-            debugPrint("$value");
-            themeChangerProvider.setTheme(switchOn ? Brightness.dark : Brightness.light);
-          });
-        }, value: switchOn),
+        trailing: Checkbox(
+            onChanged: (value) {
+              setState(() {
+                switchOn = value;
+                debugPrint("$value");
+                themeChangerProvider
+                    .setTheme(switchOn ? Brightness.dark : Brightness.light);
+              });
+            },
+            value: switchOn),
+      ),
+      ListTile(
+        leading: Icon(Icons.lightbulb_outline),
+        title: Text("Night Mode"),
+        trailing: Checkbox(
+            onChanged: (value) {
+              setState(() {
+                switchOn = value;
+                debugPrint("$value");
+                themeChangerProvider
+                    .setTheme(switchOn ? Brightness.dark : Brightness.light);
+              });
+            },
+            value: switchOn),
       ),
       Container(
         decoration: ShapeDecoration(shape: StadiumBorder()),

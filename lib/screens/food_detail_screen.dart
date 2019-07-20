@@ -1,4 +1,4 @@
-import 'package:cafeteria/Models/foodItem.dart';
+import 'package:cafeteria/models/food_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

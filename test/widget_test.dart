@@ -5,8 +5,8 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:cafeteria/Component/food_list_component.dart';
-import 'package:cafeteria/Models/foodItem.dart';
+import 'package:cafeteria/component/food_list_component.dart';
+import 'package:cafeteria/models/food_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';

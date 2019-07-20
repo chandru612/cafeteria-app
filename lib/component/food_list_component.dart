@@ -1,4 +1,4 @@
-import 'package:cafeteria/Models/foodItem.dart';
+import 'package:cafeteria/models/food_item.dart';
 import 'package:cafeteria/screens/food_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:feedback_widget/feedback_widget.dart';

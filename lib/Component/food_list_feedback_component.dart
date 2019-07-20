@@ -1,31 +1,32 @@
 import 'package:cafeteria/models/food_item_feedback.dart';
 import 'package:flutter/material.dart';
 
-import 'feedback_stats_component.dart';
+import 'Feedback_stats_component.dart';
+
 
 class FoodListFeedbackComponent extends StatelessWidget {
 
-  List<FoodItemFeedback> foodItems;
+  List<FoodItemFeedback> foodItemFeedbacks;
 
-  FoodListFeedbackComponent(this.foodItems);
+  FoodListFeedbackComponent(this.foodItemFeedbacks);
 
   @override
   Widget build(BuildContext context) {
     debugPrint("rebuild list page");
 
     return ListView.builder(
-      itemCount: foodItems.length,
+      itemCount: foodItemFeedbacks.length,
       itemBuilder: (BuildContext context, int index) {
-        var foodItem = foodItems[index];
+        var foodItemFeedback = foodItemFeedbacks[index];
         return ListTile(
-          title: Text(foodItem.name),
-          subtitle: Text(foodItem.description),
+          title: Text(foodItemFeedback.name),
+          subtitle: Text(foodItemFeedback.description),
           leading: CircleAvatar(
             child: Text(
-              foodItem.name[0],
+              foodItemFeedback.name[0],
             ),
           ),
-          trailing: FeedbackStatsComponent(foodItem),
+          trailing: FeedbackStatsComponent(foodItemFeedback),
         );
       },
     );

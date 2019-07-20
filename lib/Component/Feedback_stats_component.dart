@@ -1,19 +1,19 @@
-import 'package:cafeteria/Models/food_item_feedback.dart';
+import 'package:cafeteria/models/food_item_feedback.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
 class FeedbackStatsComponent extends StatelessWidget {
-  FoodItemFeedback foodItem;
+  FoodItemFeedback foodItemFeedback;
 
-  FeedbackStatsComponent(this.foodItem);
+  FeedbackStatsComponent(this.foodItemFeedback);
 
   Map<String, double> parseRadii(){
-    int maxValue = [foodItem.likes, foodItem.neutral, foodItem.dislikes].reduce(max);
+    int maxValue = [foodItemFeedback.likes, foodItemFeedback.neutral, foodItemFeedback.dislikes].reduce(max);
 
     return {
-      "green": foodItem.likes == maxValue ? 15.0 : 10.0,
-      "yellow": foodItem.neutral == maxValue ? 15.0 : 10.0,
-      "red": foodItem.dislikes == maxValue ? 15.0 : 10.0,
+      "green": foodItemFeedback.likes == maxValue ? 15.0 : 10.0,
+      "yellow": foodItemFeedback.neutral == maxValue ? 15.0 : 10.0,
+      "red": foodItemFeedback.dislikes == maxValue ? 15.0 : 10.0,
     };
   }
 
@@ -28,7 +28,7 @@ class FeedbackStatsComponent extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: CircleAvatar(
             backgroundColor: Colors.greenAccent,
-            child: Text(foodItem.likes.toString()),
+            child: Text(foodItemFeedback.likes.toString()),
             radius: radiiValues["green"],
           ),
         ),
@@ -36,7 +36,7 @@ class FeedbackStatsComponent extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: CircleAvatar(
             backgroundColor: Colors.yellow,
-            child: Text(foodItem.neutral.toString()),
+            child: Text(foodItemFeedback.neutral.toString()),
             radius: radiiValues["yellow"],
           ),
         ),
@@ -44,7 +44,7 @@ class FeedbackStatsComponent extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: CircleAvatar(
             backgroundColor: Colors.redAccent,
-            child: Text(foodItem.dislikes.toString()),
+            child: Text(foodItemFeedback.dislikes.toString()),
             radius: radiiValues["red"],
           ),
         ),

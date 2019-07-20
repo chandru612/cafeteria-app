@@ -1,5 +1,5 @@
-import 'package:cafeteria/Models/foodItem.dart';
-import 'package:cafeteria/Models/FoodItemFeedback.dart';
+import 'package:cafeteria/models/food_item.dart';
+import 'package:cafeteria/models/food_item_feedback.dart';
 import "package:http/http.dart" as http;
 import 'package:cafeteria/common/constants.dart';
 
