@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:cafeteria/Screens/FoodItemScreen.dart';
-import 'provider/ThemeChangerProvider.dart';
+import 'package:cafeteria/Screens/food_item_screen.dart';
+import 'provider/theme_changer_rovider.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());

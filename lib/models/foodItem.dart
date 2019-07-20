@@ -26,16 +26,4 @@ class FoodItem {
         "image_url": imageUrl,
         "description": description,
     };
-
-    /*static List<FoodItem> foodItems() {
-    var foodItems = <FoodItem>[];
-    foodItems.add(FoodItem("Dosa", "url", "This is a south indian dish"));
-    foodItems.add(FoodItem("Idly", 2, "Idly Description"));
-    foodItems.add(FoodItem("Salad", 3, "Very good for health"));
-    foodItems.add(FoodItem("Nutty cream", 4, "High Quality nuts"));
-    foodItems.add(FoodItem("Gulab Jamun", 5, "A treat for your taste buds"));
-    foodItems.add(FoodItem("Curd Rice", 6, "Helps protect your digestive system"));
-
-    return foodItems;
-  }*/
 }

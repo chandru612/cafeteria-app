@@ -1,9 +1,9 @@
-import 'package:cafeteria/Component/FoodListComponent.dart';
-import 'package:cafeteria/Component/NavigationDrawerComponent.dart';
-import 'package:cafeteria/Models/FoodItem.dart';
+import 'package:cafeteria/Component/food_list_component.dart';
+import 'package:cafeteria/Component/navigation_drawer_component.dart';
+import 'package:cafeteria/Models/foodItem.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:cafeteria/Service/FoodItemService.dart';
+import 'package:cafeteria/Service/food_item_service.dart';
 
 class FoodItemScreen extends StatefulWidget {
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:cafeteria/Models/FoodItem.dart';
+import 'package:cafeteria/Models/foodItem.dart';
 import 'package:mockito/mockito.dart';
 
 class MockFoodItem extends Mock implements FoodItem {

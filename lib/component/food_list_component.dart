@@ -1,5 +1,5 @@
-import 'package:cafeteria/Models/FoodItem.dart';
-import 'package:cafeteria/Screens/FoodDetailPage.dart';
+import 'package:cafeteria/Models/foodItem.dart';
+import 'package:cafeteria/screens/food_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class FoodListComponent extends StatelessWidget {
@@ -36,6 +36,6 @@ class FoodListComponent extends StatelessWidget {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => FoodDetailPage()..foodItem = foodItem));
+            builder: (context) => FoodDetailScreen()..foodItem = foodItem));
   }
 }

@@ -1,4 +1,4 @@
-import 'package:cafeteria/provider/ThemeChangerProvider.dart';
+import 'package:cafeteria/provider/theme_changer_rovider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
