@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cafeteria/Screens/FoodItemScreen.dart';
+import 'Screens/FoodItemFeedbackScreen.dart';
 import 'provider/ThemeChangerProvider.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +30,7 @@ class MaterialAppTheme extends StatelessWidget {
         primarySwatch: Colors.blue,
         brightness: themeChangerProvider.brightness,
       ),
-      home: FoodItemScreen(),
+      home: FoodItemFeedbackScreen(),
     );
   }
 }
