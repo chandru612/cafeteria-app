@@ -1,7 +1,7 @@
 import 'package:cafeteria/models/food_item_feedback.dart';
 import 'package:flutter/material.dart';
 
-import 'Feedback_stats_component.dart';
+import 'feedback_stats_component.dart';
 
 
 class FoodListFeedbackComponent extends StatelessWidget {
