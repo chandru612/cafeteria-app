@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class FeedbackStatsComponent extends StatelessWidget {
-  FoodItemFeedback foodItemFeedback;
+  final FoodItemFeedback foodItemFeedback;
 
   FeedbackStatsComponent(this.foodItemFeedback);
 

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 class FoodDetailScreen extends StatelessWidget {
 
-  FoodItem foodItem;
+  final FoodItem foodItem;
+
+  const FoodDetailScreen(this.foodItem);
 
   @override
   Widget build(BuildContext context) {

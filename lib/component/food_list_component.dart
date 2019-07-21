@@ -5,7 +5,7 @@ import 'package:feedback_widget/feedback_widget.dart';
 
 class FoodListComponent extends StatefulWidget {
 
-  List<FoodItem> foodItems;
+  final List<FoodItem> foodItems;
 
   FoodListComponent(this.foodItems);
 
@@ -16,7 +16,6 @@ class FoodListComponent extends StatefulWidget {
 class _FoodListComponentState extends State<FoodListComponent> {
   @override
   Widget build(BuildContext context) {
-    debugPrint("rebuild list page");
     var feedbacks = {};
     return ListView.builder(
         itemCount: widget.foodItems.length,
@@ -69,6 +68,6 @@ class _FoodListComponentState extends State<FoodListComponent> {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => FoodDetailScreen()..foodItem = foodItem));
+            builder: (context) => FoodDetailScreen(foodItem)));
   }
 }

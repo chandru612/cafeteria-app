@@ -6,13 +6,12 @@ import 'feedback_stats_component.dart';
 
 class FoodListFeedbackComponent extends StatelessWidget {
 
-  List<FoodItemFeedback> foodItemFeedbacks;
+  final List<FoodItemFeedback> foodItemFeedbacks;
 
   FoodListFeedbackComponent(this.foodItemFeedbacks);
 
   @override
   Widget build(BuildContext context) {
-    debugPrint("rebuild list page");
 
     return ListView.builder(
       itemCount: foodItemFeedbacks.length,
