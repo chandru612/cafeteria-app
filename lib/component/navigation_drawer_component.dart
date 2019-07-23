@@ -47,7 +47,6 @@ Widget build(BuildContext context) {
               onChanged: (value) {
                 setState(() {
                   switchOn = value;
-                  debugPrint("$value");
                   themeChangerProvider
                       .setTheme(switchOn ? Brightness.dark : Brightness.light);
                 });

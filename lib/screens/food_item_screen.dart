@@ -11,30 +11,29 @@ class FoodItemScreen extends StatefulWidget {
 }
 
 class FoodItemScreenState extends State<FoodItemScreen> {
-  List<FoodItem> foodItems = [];
+  final Text _title = Text("Cafeteria");
+
+  FutureBuilder _futureBuilder() => FutureBuilder(
+        future: FoodItemService.getAllFoodItems(),
+        builder: (BuildContext context, AsyncSnapshot snapShot) =>
+            buildBody(snapShot),
+      );
+
+  Widget buildBody(AsyncSnapshot snapShot) {
+    bool isSuccess =
+        snapShot.connectionState == ConnectionState.done && snapShot.hasData;
+    return isSuccess
+        ? FoodListComponent(snapShot.data)
+        : Center(child: CircularProgressIndicator());
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          body: FutureBuilder(
-            future: FoodItemService.getAllFoodItems(),
-              builder: (BuildContext context, AsyncSnapshot snapshot) {
-              bool isSuccess = snapshot.connectionState == ConnectionState.done && snapshot.hasData;
-              return isSuccess ? FoodListComponent(snapshot.data) : Center(child: CircularProgressIndicator());
-          }),
-          floatingActionButton: FloatingActionButton(
-            onPressed: null,
-            child: Icon(Icons.add),
-          ),
+          body: _futureBuilder(),
           appBar: new AppBar(
-            title: Text("Gmail App"),
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(Icons.search),
-                onPressed: () {},
-              )
-            ],
+            title: _title,
           ),
           drawer: NavigationDrawerComponent()),
     );
