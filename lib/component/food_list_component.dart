@@ -14,7 +14,9 @@ class FoodListComponent extends StatefulWidget {
 
 class _FoodListComponentState extends State<FoodListComponent> {
   final Map<String, Status> feedbacks = {};
-
+  final BoxDecoration _boxDecoration = BoxDecoration(
+      color: Colors.white,
+      boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 5.0)]);
   Widget _circleAvatar(String name) => Container(
         margin: const EdgeInsets.only(right: 10),
         child: CircleAvatar(
@@ -25,9 +27,19 @@ class _FoodListComponentState extends State<FoodListComponent> {
   Widget _description(String name, String description) => Expanded(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(name),
-            Text(description),
+            Text(
+              name,
+              style: TextStyle(fontSize: 20.0),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text(
+              description,
+              style: TextStyle(fontSize: 14.0, color: Colors.grey),
+            ),
           ],
         ),
       );
@@ -43,21 +55,27 @@ class _FoodListComponentState extends State<FoodListComponent> {
     return [
       _circleAvatar(foodItem.name),
       _description(foodItem.name, foodItem.description),
-      _feedbackView(foodItem.name)
+      _feedbackView(foodItem.name),
     ];
   }
+
+  Widget _foodCell(int index) => Container(
+        decoration: _boxDecoration,
+        padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: _buildWidgets(index),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: widget.foodItems.length,
         itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: _buildWidgets(index),
-            ),
+          return Container(
+            margin: EdgeInsets.symmetric(vertical: 10.0),
+            child: _foodCell(index),
           );
         });
   }

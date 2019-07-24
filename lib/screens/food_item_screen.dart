@@ -1,6 +1,5 @@
 import 'package:cafeteria/component/food_list_component.dart';
 import 'package:cafeteria/component/navigation_drawer_component.dart';
-import 'package:cafeteria/models/food_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cafeteria/Service/food_item_service.dart';
