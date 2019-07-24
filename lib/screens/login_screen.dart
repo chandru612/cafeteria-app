@@ -1,3 +1,4 @@
+import 'package:cafeteria/common/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import 'food_item_screen.dart';
@@ -9,29 +10,61 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController idController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  Color buttonColor = AppColors.disabled;
+
+  @override
+  void initState() {
+    super.initState();
+    idController.addListener(_enableButton);
+    passwordController.addListener(_enableButton);
+  }
+
+  void _enableButton() {
+    setState(() {
+      if(idController.text.length > 0 && passwordController.text.length > 0) {
+        buttonColor = AppColors.green;
+      } else {
+        buttonColor = AppColors.disabled;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-      body: Form(
-      key: _formKey,
-      child: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16.0),
+          body: SingleChildScrollView(
+        padding: EdgeInsets.all(36),
+        child: Form(
+          key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              CircleAvatar(
-                radius: 60,
-                backgroundImage: NetworkImage(
-                    "https://scontent-sin2-2.xx.fbcdn.net/v/t1.0-1/579113_165893363610115_1723460683_n.png?_nc_cat=100&_nc_oc=AQn-oQW4-huqMbM9o4tXlt5_JOqlv8-ZWZ7nLU49bHoePhV3BhhiNoWBtEo_e7weQ4M&_nc_ht=scontent-sin2-2.xx&oh=3f42baeccfbc8e208169cf28633aefc2&oe=5DEAE448"),
+              SizedBox(height: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text('Login', style: TextStyle(fontWeight: FontWeight.w700, color: AppColors.text_black), textScaleFactor: 2.5),
+                  Icon(Icons.verified_user, color: AppColors.green)
+                ],
               ),
               SizedBox(height: 24),
               TextFormField(
+                controller: idController,
+                autofocus: true,
                 decoration: const InputDecoration(
-                    hintText: "Enter your Employee ID", labelText: "Employee ID"),
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.underline)),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: AppColors.green),
+                  ),
+                  hintStyle: TextStyle(color: AppColors.text_grey),
+                  hintText: "Employee ID",
+                ),
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value.isEmpty || value.length != 5) {
@@ -40,9 +73,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   return null;
                 },
               ),
+              SizedBox(height: 16),
               TextFormField(
+                controller: passwordController,
                 decoration: const InputDecoration(
-                    hintText: "Enter your Password", labelText: "Password"),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: AppColors.underline)),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.green),
+                    ),
+                    hintStyle: TextStyle(color: AppColors.text_grey),
+                    hintText: "Password"),
                 validator: (value) {
                   if (!RegExp(r"^(?=.*\d).{4,8}$").hasMatch(value)) {
                     return 'Password must be between 4 and 8 digits long and include at least one numeric digit';
@@ -51,11 +92,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
                 obscureText: true,
               ),
-              SizedBox(height: 24),
+              SizedBox(height: 48),
               SizedBox(
-                width: double.infinity,
-                child: RaisedButton(
-                  color: Colors.indigo,
+                width: 240,
+                height: 55,
+                child: FlatButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(55))),
+                  color: buttonColor,
                   textColor: Colors.white,
                   onPressed: () {
                     if (_formKey.currentState.validate()) {
@@ -65,14 +109,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               builder: (context) => FoodItemScreen()));
                     }
                   },
-                  child: Text('Submit'),
+                  child: Text('COUNTINUE'),
                 ),
               ),
             ],
           ),
         ),
-      ),
-    )),
+      )),
     );
   }
 }

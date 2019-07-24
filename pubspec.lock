@@ -150,7 +150,7 @@ packages:
       name: petitparser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.0"
+    version: "2.3.0"
   provider:
     dependency: "direct dev"
     description:
@@ -241,4 +241,4 @@ packages:
     source: hosted
     version: "2.1.16"
 sdks:
-  dart: ">=2.4.0 <3.0.0"
+  dart: ">=2.3.0 <3.0.0"
