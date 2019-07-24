@@ -114,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               builder: (context) => FoodItemScreen()));
                     }
                   },
-                  child: Text('COUNTINUE'),
+                  child: Text('CONTINUE'),
                 ),
               ),
             ],

@@ -11,22 +11,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ThemeChangerProvider>(
-      builder: (_) => ThemeChangerProvider(Brightness.light),
+      builder: (_) => ThemeChangerProvider(Brightness.light, Colors.green),
       child: new MaterialAppTheme(),
     );
   }
 }
 
 class MaterialAppTheme extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     final themeChangerProvider = Provider.of<ThemeChangerProvider>(context);
 
     return new MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Cafeteria',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: themeChangerProvider.appThemeColor,
         brightness: themeChangerProvider.brightness,
       ),
       home: LoginScreen(),
