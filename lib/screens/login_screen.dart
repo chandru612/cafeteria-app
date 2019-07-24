@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _enableButton() {
     setState(() {
-      if(idController.text.length > 0 && passwordController.text.length > 0) {
+      if (idController.text.length > 0 && passwordController.text.length > 0) {
         buttonColor = AppColors.green;
       } else {
         buttonColor = AppColors.disabled;
@@ -48,7 +48,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Text('Login', style: TextStyle(fontWeight: FontWeight.w700, color: AppColors.text_black), textScaleFactor: 2.5),
+                  Text('Login',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.text_black),
+                      textScaleFactor: 2.5),
                   Icon(Icons.verified_user, color: AppColors.green)
                 ],
               ),
@@ -82,6 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: AppColors.green),
                     ),
+                    errorMaxLines: 2,
                     hintStyle: TextStyle(color: AppColors.text_grey),
                     hintText: "Password"),
                 validator: (value) {
